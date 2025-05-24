@@ -1,4 +1,7 @@
 #include<iostream>
+#include <cstdint>   
+#include <climits>   
+#include <cinttypes> 
 #include<vector>
 
 using namespace std;

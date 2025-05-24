@@ -1,6 +1,4 @@
-#include<iostream>
-#include<vector>
-
+#include<bits/stdc++.h>
 using namespace std;
 
 int getSecondLargest(vector<int> arr) {
