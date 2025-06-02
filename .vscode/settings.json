@@ -69,6 +69,8 @@
         "typeinfo": "cpp",
         "valarray": "cpp",
         "climits": "cpp",
-        "span": "cpp"
+        "span": "cpp",
+        "format": "cpp",
+        "__tree": "cpp"
     }
 }
