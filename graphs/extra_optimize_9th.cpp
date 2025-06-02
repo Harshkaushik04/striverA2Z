@@ -8,11 +8,12 @@ xoox  =>   xxxx
 xoox       xxxx   
 xxxx       xxxx
 */
-vector<vector<char>> fill(vector<vector<char>> grid){
+void fill(vector<vector<char>> grid){
     int rowNum=grid.size();
     int colNum=grid[0].size();
     vector<pair<int,int>> cornerO,keepO;
     vector<vector<char>> ans(rowNum,vector<char>(colNum,'X'));
+    vector<vector<char>> visited_arr(rowNum,vector<char>(colNum,0));
     for(int i=0;i<rowNum;i++){
         if(grid[i][0]=='O') cornerO.emplace_back(make_pair(i,0));
         if(grid[i][colNum-1]=='O') cornerO.emplace_back(make_pair(i,colNum-1));
@@ -22,23 +23,20 @@ vector<vector<char>> fill(vector<vector<char>> grid){
         if(grid[rowNum-1][i]=='O') cornerO.emplace_back(make_pair(rowNum-1,i));
     }
     int cornerOsize=cornerO.size();
-    vector<vector<int>> visited_arr(rowNum,vector<int>(colNum,0)); 
     for(int i=0;i<cornerOsize;i++){
-        if(visited_arr[cornerO[i].first][cornerO[i].second]==0) traversal(cornerO[i],&grid,&visited_arr,&keepO);
+        if(visited_arr[cornerO[i].first][cornerO[i].second]==0) traversal(cornerO[i],&ans,&grid,&keepO,&visited_arr);
     }
-    for(pair<int,int> p:keepO){
-        ans[p.first][p.second]='O';
-    }
-    return ans;
+    grid=ans;
 }
 
-void traversal(pair<int,int> start,vector<vector<char>>* gridP,vector<vector<int>>* visited_arrP,vector<pair<int,int>>* keepO){
-    (*visited_arrP)[start.first][start.second]=1;
+void traversal(pair<int,int> start,vector<vector<char>>* ansP,vector<vector<char>>* gridP,vector<pair<int,int>>* keepO,vector<vector<char>>* visited_arrP){
     (*keepO).emplace_back(start);
+    (*ansP)[start.first][start.second]='O';
+    (*visited_arrP)[start.first][start.second]=1;
     vector<pair<int,int>> neighbors=findNeighbors(gridP,start);
     for(pair<int,int> neighbor:neighbors){
         if((*gridP)[neighbor.first][neighbor.second]=='O' && (*visited_arrP)[neighbor.first][neighbor.second]==0){
-            traversal(neighbor,gridP,visited_arrP,keepO);
+            traversal(neighbor,ansP,gridP,keepO,visited_arrP);
         }
     }
 }
