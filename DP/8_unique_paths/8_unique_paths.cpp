@@ -8,7 +8,7 @@ int uniquePaths(int m, int n) {
 
 int f(int x,int y,vector<vector<int>>& dp){
     if(x==0 && y==0) return 0;
-    int temp1=0,temp2=0;
+    int temp1=0,temp2=0,temp3=0;
     if(x-1>=0){
         if(dp[x-1][y]==-1) temp1=f(x-1,y,dp);
         else temp1=dp[x-1][y];
@@ -17,6 +17,10 @@ int f(int x,int y,vector<vector<int>>& dp){
         if(dp[x][y-1]==-1) temp2=f(x,y-1,dp);
         else temp2=dp[x][y-1];
     }
-    dp[x][y]=1+temp1+temp2;
+    if(x-1>=0 && y-1>=0){
+        if(dp[x-1][y-1]==-1) temp3=f(x-1,y-1,dp);
+        else temp3=dp[x-1][y-1];
+    }
+    dp[x][y]=1+temp1+temp2-temp3;
     return dp[x][y];
 }
