@@ -71,6 +71,8 @@
         "climits": "cpp",
         "span": "cpp",
         "format": "cpp",
-        "__tree": "cpp"
+        "__tree": "cpp",
+        "source_location": "cpp",
+        "stacktrace": "cpp"
     }
 }
