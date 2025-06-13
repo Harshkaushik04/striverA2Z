@@ -26,7 +26,7 @@ bool isSubsetSum(vector<int>& arr, int sum) {
     // code here
     int n=arr.size();
     vector<vector<int>> dp(n,vector<int>(sum+1,-1));
-    return f(arr,dp,n-1,sum);
+    return(arr,dp,n-1,sum);
 }
 //dp---> -1 for not set
 //dp--->  1 for true
