@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+//solved by converting this into a sum problem
 int minDifference(vector<int>&arr)  { 
     int n=arr.size();
     int totalSum=0;
@@ -16,8 +17,8 @@ int minDifference(vector<int>&arr)  {
         for(int target=1;target<=totalSum;target++){
             not_take=last[target];
             take=false;
-            if(target>arr[i]) take=last[target-arr[i]];
-            current[target]=(take||not_take);
+            if(target>=arr[i]) take=last[target-arr[i]];
+            current[target]=(take+not_take);
         }
         last=current;
     }
