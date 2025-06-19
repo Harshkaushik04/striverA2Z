@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+//not done
 int f(int i,int buy,vector<vector<int>>& dp,vector<int>& prices){
     if(i==0){
         if(buy==0) return 0;
