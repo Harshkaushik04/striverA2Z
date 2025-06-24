@@ -197,4 +197,4 @@ int main(){
     ans=InfixToPre(s);
     cout<<ans<<endl;
     return 0;
-}
+}   
