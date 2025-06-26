@@ -7,14 +7,17 @@ void traversal(int i,int n,vector<vector<int>>& adj,vector<int>& visited_arr,vec
     q.push(i);
     int current,tempSize;
     while(!q.empty()){
-        current=q.front();
-        tempSize=adj[current].size();
-        ans.emplace_back(current);
-        q.pop();
-        for(int j=0;j<tempSize;j++){
-            if(visited_arr[adj[current][j]]==0){
-                q.push(adj[current][j]);
-                visited_arr[adj[current][j]]=1;
+        int qSize=q.size();
+        for(int k=0;k<qSize;k++){
+            current=q.front();
+            tempSize=adj[current].size();
+            ans.emplace_back(current);
+            q.pop();
+            for(int j=0;j<tempSize;j++){
+                if(visited_arr[adj[current][j]]==0){
+                    q.push(adj[current][j]);
+                    visited_arr[adj[current][j]]=1;
+                }
             }
         }
     }
