@@ -1,16 +1,16 @@
 #include<bits/stdc++.h>
-#include "1_traversal_recursive.cpp"
+#include "binary_tree.cpp"
 using namespace std;
 
-bool isLeaf(binary_node* current){
+bool isLeaf(TreeNode* current){
     if(current->left==nullptr && current->right==nullptr){
         return true;
     }
     return false;
 }
 
-vector<int> leftBoundary(binary_node* node){
-    binary_node* current=node;
+vector<int> leftBoundary(TreeNode* node){
+    TreeNode* current=node;
     vector<int> l;
     while(!isLeaf(current)){
         if(current->left!=nullptr){
@@ -27,7 +27,7 @@ vector<int> leftBoundary(binary_node* node){
     return l;
 }
 
-void leafs(binary_node* node,vector<int>* collectingList){
+void leafs(TreeNode* node,vector<int>* collectingList){
     //preorder
     if(node==nullptr){
         return;
@@ -39,8 +39,8 @@ void leafs(binary_node* node,vector<int>* collectingList){
     leafs(node->right,collectingList);
 }
 
-vector<int> rightBoundary(binary_node* node){
-    binary_node* current=node;
+vector<int> rightBoundary(TreeNode* node){
+    TreeNode* current=node;
     stack<int> st;
     vector<int> result;
     if(node->right==nullptr){
@@ -68,7 +68,7 @@ vector<int> rightBoundary(binary_node* node){
     return result;
 }
 
-void boundaryTraversal(binary_node* node){
+void boundaryTraversal(TreeNode* node){
     vector<int> left=leftBoundary(node);
     vector<int> leafsList;
     vector<int>* pointer=&leafsList;

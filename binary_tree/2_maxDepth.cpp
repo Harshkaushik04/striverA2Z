@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-#include "1_traversal_recursive.cpp"
+#include "binary_tree.cpp"
 using namespace std;
 //mycode
 // int Depth(binary_node* left,binary_node* right){
@@ -17,7 +17,7 @@ using namespace std;
 //     }
 // }
 
-int Depth(binary_node* node) {
+int Depth(TreeNode* node) {
     if (node == nullptr) return 0;
     return 1 + max(Depth(node->left), Depth(node->right));
 }

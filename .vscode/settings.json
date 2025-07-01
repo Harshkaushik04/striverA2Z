@@ -73,6 +73,27 @@
         "format": "cpp",
         "__tree": "cpp",
         "source_location": "cpp",
-        "stacktrace": "cpp"
+        "stacktrace": "cpp",
+        "filesystem": "cpp",
+        "any": "cpp",
+        "barrier": "cpp",
+        "bit": "cpp",
+        "charconv": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "coroutine": "cpp",
+        "expected": "cpp",
+        "optional": "cpp",
+        "string_view": "cpp",
+        "latch": "cpp",
+        "numbers": "cpp",
+        "ranges": "cpp",
+        "semaphore": "cpp",
+        "spanstream": "cpp",
+        "stop_token": "cpp",
+        "syncstream": "cpp",
+        "variant": "cpp",
+        "stdfloat": "cpp",
+        "__nullptr": "cpp"
     }
 }

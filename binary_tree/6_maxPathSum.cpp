@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
-#include "1_traversal_recursive.cpp"
+#include "binary_tree.cpp"
 using namespace std;
 
-int maxSum(binary_node* node,int* sum){
+int maxSum(TreeNode* node,int* sum){
     if(node==nullptr){
         return 0;
     }
@@ -12,7 +12,7 @@ int maxSum(binary_node* node,int* sum){
     return max(lSum,rSum)+node->content;
 }
 
-int maxPathSum(binary_node* node){
+int maxPathSum(TreeNode* node){
     int sum=0;
     int* pointer=&sum;
     maxSum(node,pointer);

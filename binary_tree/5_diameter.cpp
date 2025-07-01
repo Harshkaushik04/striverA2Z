@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
-#include "1_traversal_recursive.cpp"
+#include "binary_tree.cpp"
 using namespace std;
 
-int height(binary_node* node,int* maxi){
+int height(TreeNode* node,int* maxi){
     if(node==nullptr){
         return 0;
     }
@@ -12,7 +12,7 @@ int height(binary_node* node,int* maxi){
     return 1+max(lh,rh);
 }
 
-int diameter(binary_node* node){
+int diameter(TreeNode* node){
     int maxi=0;
     int* pointer=&maxi;
     height(node,pointer);

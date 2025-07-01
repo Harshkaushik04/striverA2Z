@@ -1,12 +1,12 @@
 #include<bits/stdc++.h>
-#include "1_traversal_recursive.cpp"
+#include "binary_tree.cpp"
 using namespace std;
 
-void itterative_preorder(binary_node* node){
-    stack<binary_node*> st;
+void itterative_preorder(TreeNode* node){
+    stack<TreeNode*> st;
     st.push(node);
     while(!st.empty()){
-        binary_node* current=st.top();
+        TreeNode* current=st.top();
         st.pop();
         cout<<current->content<<endl;
         if(current->right!=nullptr){

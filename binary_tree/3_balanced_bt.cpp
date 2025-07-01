@@ -1,8 +1,8 @@
 #include<iostream>
-#include "1_traversal_recursive.cpp"
+#include "binary_tree.cpp"
 using namespace std;
 
-int balancedHeight(binary_node* node){
+int balancedHeight(TreeNode* node){
     if(node==nullptr){
         return 0;
     }
@@ -17,7 +17,7 @@ int balancedHeight(binary_node* node){
     return 1+max(lh,rh);
 }
 
-bool checkBalanced(binary_node* node){
+bool checkBalanced(TreeNode* node){
     if(balancedHeight(node)!=-1) return true;
     else return false;
 }
