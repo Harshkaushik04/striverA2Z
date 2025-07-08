@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-#include "TreeNode.cpp"
+#include "../TreeNode.cpp"
 using namespace std;
 
 int height(TreeNode* node,unordered_map<TreeNode*,int>& mpp){

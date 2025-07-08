@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-#include "TreeNode.cpp"
+#include "../TreeNode.cpp"
 using namespace std;
 
 //dp version is actaully redundant
