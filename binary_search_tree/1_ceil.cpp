@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
-#include "../binary_tree/1_traversal_recursive.cpp"
+#include "binary_tree.cpp"
 using namespace std;
 
-int ceil(binary_node* node,int key){
-    binary_node* current=node;
+int ceil(TreeNode* node,int key){
+    TreeNode* current=node;
     int ans=INT32_MAX;
     if(current->content>=key){
         ans=current->content;

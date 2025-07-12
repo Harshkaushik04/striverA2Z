@@ -1,18 +1,18 @@
 #include<bits/stdc++.h>
-#include "../binary_tree/1_traversal_recursive.cpp"
+#include "binary_tree.cpp"
 using namespace std;
 
-binary_node* insertNode(binary_node* node,int val){
-    binary_node* current=node;
+TreeNode* insertNode(TreeNode* node,int val){
+    TreeNode* current=node;
     if(node==nullptr){
-        node=new binary_node();
+        node=new TreeNode();
         node->content=val;
         return node;
     }
     while(true){
         if(current->content>val){
             if(current->left==nullptr) {
-                current->left=new binary_node();
+                current->left=new TreeNode();
                 current->left->content=val;
                 break;
             }
@@ -22,7 +22,7 @@ binary_node* insertNode(binary_node* node,int val){
         }
         else{
             if(current->right==nullptr){
-                current->right=new binary_node();
+                current->right=new TreeNode();
                 current->right->content=val;
                 break;
             }

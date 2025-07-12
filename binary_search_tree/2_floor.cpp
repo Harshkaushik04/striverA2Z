@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
-#include "../binary_tree/1_traversal_recursive.cpp"
+#include "binary_tree.cpp"
 using namespace std;
 
-int floor(binary_node* node,int key){
-    binary_node* current=node;
+int floor(TreeNode* node,int key){
+    TreeNode* current=node;
     int ans=INT32_MIN;
     while(current!=nullptr){
         if(current->content==key) return key;

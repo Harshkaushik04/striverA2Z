@@ -1,6 +1,59 @@
 #include<bits/stdc++.h>
-#include "binary_tree.cpp"
+#include "../binary_tree.cpp"
 using namespace std;
+
+TreeNode* searchBST(TreeNode* root, int val) {
+    if(root->val==val) return root;
+    TreeNode* current=root;
+    while(current!=nullptr){
+        if(current->val<val) current=current->right;
+        else if(current->val>val) current=current->left;
+        else return current;
+    }
+    return nullptr;
+}
+
+int findCeil(Node* root, int input) {
+    // Your code here
+    if(root->data==input) return input;
+    Node* current=root;
+    int ans=INT32_MIN;
+    while(current!=nullptr){
+        if(current->data<input) current=current->right;
+        else if(current->data==input) return input;
+        else{
+            ans=current->data;
+            current=current->left;
+        }
+    }
+    if(ans<input) return -1;
+    return ans;
+}
+
+TreeNode* insertIntoBST(TreeNode* root, int val) {
+    if(root==nullptr){
+        root=new TreeNode(val);
+        return root;
+    }
+    TreeNode* current=root;
+    while(true){
+        if(current->val<val){
+            if(current->right==nullptr){
+                current->right=new TreeNode(val);
+                return root;
+            }
+            else current=current->right;
+        }
+        else{//current->val==val not possible given in question
+            if(current->left==nullptr){
+                current->left=new TreeNode(val);
+                return root;
+            }
+            else current=current->left;
+        }
+    }
+    return root;
+}
 
 TreeNode* find_parent(TreeNode* root,int key){
     if(root->val==key) return root;
