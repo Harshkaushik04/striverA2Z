@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-#include "binary_node.cpp"
+#include "binary_tree.cpp"
 using namespace std;
 
 void build_tree(int preorder_i,int preorder_j,vector<int>& preorder,
@@ -51,5 +51,7 @@ TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
 }
 
 TreeNode* bstFromPreorder(vector<int>& preorder) {
-    
+    vector<int> inorder=preorder;
+    sort(inorder.begin(),inorder.end());
+    return buildTree(preorder,inorder);
 }
