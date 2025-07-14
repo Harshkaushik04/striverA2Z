@@ -1,0 +1,14 @@
+1-counting rooms:bfs 
+2-layrinth:bfs
+3-building roads:bfs
+4-message route:bfs with modified visited_arr to find path
+5-building teams:bipartite graph
+6-round trip
+7-monster:bfs
+shortest routes1-dijkstra
+shortest routes2-floyd warshall
+high score-bellman ford+bfs
+flight discount-dijkstra
+cycle_finding-bellman ford
+planets_and_kingdoms-kosaraju algo
+flight routes check-1 dfs in graph and second dfs in reversed graph
