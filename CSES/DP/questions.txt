@@ -1,0 +1,2 @@
+dice_combinations-1d dp
+minimizing_coins-1d dp
