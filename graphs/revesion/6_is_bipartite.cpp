@@ -30,7 +30,7 @@ bool isBipartite(int V, vector<vector<int>> &edges) {
                         else return false; //visited_arr[neighbor]==color
                     }
                 }
-                //imterchanging colors
+                //interchanging colors
                 temp=diff_color;
                 diff_color=color;
                 color=temp;
