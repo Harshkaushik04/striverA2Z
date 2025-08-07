@@ -94,6 +94,12 @@
         "syncstream": "cpp",
         "variant": "cpp",
         "stdfloat": "cpp",
-        "__nullptr": "cpp"
+        "__nullptr": "cpp",
+        "__node_handle": "cpp",
+        "ios": "cpp",
+        "__split_buffer": "cpp",
+        "queue": "cpp",
+        "stack": "cpp",
+        "__hash_table": "cpp"
     }
 }

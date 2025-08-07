@@ -12,3 +12,4 @@ flight discount-dijkstra
 cycle_finding-bellman ford
 planets_and_kingdoms-kosaraju algo
 flight routes check-1 dfs in graph and second dfs in reversed graph
+(good q)coin_collector: kosaraju algo+compressing scc to dag+topo sort+modified max path in dag
