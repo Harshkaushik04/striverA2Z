@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+//done by better method(more intuitive) in "day1_prep"
 int trap(vector<int>& height) {
     int ans=0;
     int n=height.size();
