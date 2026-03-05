@@ -1,0 +1,107 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool comp(const pair<int,int>& a,const pair<int,int>& b){
+    if(a.first<b.first) return true;
+    else if(a.first>b.first) return false;
+    else{
+        if(a.second==1) return true;
+        else return false;
+    }
+}
+
+vector<pair<pair<int,int>,int>> lineSweep_events(vector<pair<int,int>>& queries){ // index,times,start
+    vector<pair<int,int>> lse;
+    for(pair<int,int>& p:queries){
+        lse.emplace_back(pair<int,int>{p.first,1});
+        lse.emplace_back(pair<int,int>{p.second,-1});
+    }
+    sort(lse.begin(),lse.end(),comp);
+    int n=lse.size();
+    pair<int,int> curr={0,2};
+    int i=0;
+    int streak=1;
+    vector<pair<pair<int,int>,int>> actual_lse;
+    while(i<n){
+        if(curr.first==lse[i].first && curr.second==lse[i].second) streak++;
+        else{
+            if(curr.second!=2){
+                actual_lse.emplace_back(pair<pair<int,int>,int>{pair<int,int>{curr.first,streak},curr.second});
+                streak=1;
+            }
+        }
+        curr=lse[i];
+        i++;
+    }
+    actual_lse.emplace_back(pair<pair<int,int>,int>{pair<int,int>{curr.first,streak},curr.second});
+    return actual_lse;
+}
+
+using ll=long long;
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int n,q;
+    vector<int> arr;
+    vector<pair<int,int>> queries;
+    cin>>n>>q;
+    int temp1;
+    int temp2;
+    for(int i=0;i<n;i++){
+        cin>>temp1;
+        arr.emplace_back(temp1);
+    }
+    for(int i=0;i<q;i++){
+        cin>>temp1>>temp2;
+        queries.emplace_back(pair<int,int>{temp1,temp2});
+    }
+    vector<pair<pair<int,int>,int>> actual_lse = lineSweep_events(queries); // {{index,num_events_at_that_index},"start/end"}
+    int m=actual_lse.size();
+    int temp=0;
+    int prev=-1;
+    unordered_map<int,int> multiplyFactor_to_numIndexes;
+    int prev_event=2;
+    for(int i=0;i<m;i++){
+        pair<int,int> p=actual_lse[i].first;
+        int event=actual_lse[i].second;
+        if(event==1){
+            if(prev_event==1){
+                if(multiplyFactor_to_numIndexes.find(temp)!=multiplyFactor_to_numIndexes.end()) multiplyFactor_to_numIndexes[temp]+=(p.first-prev);
+                else multiplyFactor_to_numIndexes[temp]=p.first-prev;
+            }
+            else if(prev_event==-1){
+                if(multiplyFactor_to_numIndexes.find(temp)!=multiplyFactor_to_numIndexes.end()) multiplyFactor_to_numIndexes[temp]+=(p.first-prev-1);
+                else multiplyFactor_to_numIndexes[temp]=p.first-prev-1;
+            }
+            temp+=p.second;
+        }
+        else if(event==-1){
+            if(prev_event==1){
+                if(multiplyFactor_to_numIndexes.find(temp)!=multiplyFactor_to_numIndexes.end()) multiplyFactor_to_numIndexes[temp]+=(p.first-prev+1);
+                else multiplyFactor_to_numIndexes[temp]=p.first-prev+1;
+            }
+            else if(prev_event==-1){
+                if(multiplyFactor_to_numIndexes.find(temp)!=multiplyFactor_to_numIndexes.end()) multiplyFactor_to_numIndexes[temp]+=(p.first-prev);
+                else multiplyFactor_to_numIndexes[temp]=p.first-prev;
+            }
+            temp-=p.second;
+        }
+        prev_event=event;
+        prev=p.first;
+    }
+    sort(arr.begin(),arr.end(),greater<int>());
+    ll ans=0;
+    int index=0;
+    map<int,int,greater<int>> mpp(multiplyFactor_to_numIndexes.begin(),multiplyFactor_to_numIndexes.end());
+    for(const pair<int,int>& p:mpp){
+        int num_indexes=p.second;
+        for(int i=0;i<num_indexes;i++){
+            ans+=(ll) p.first*arr[index];
+            index++;
+        }
+    }
+    cout<<ans<<"\n";
+    return 0;
+}
+
+
