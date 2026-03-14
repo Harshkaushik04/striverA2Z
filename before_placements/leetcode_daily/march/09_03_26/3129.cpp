@@ -42,7 +42,11 @@ int f1(int prev_which,int rem,int limit,vector<vector<vector<vector<int>>>>& dp,
         printVec(curr);
         return 1;
     }
-    if(dp[rem][prev_which][one][zero]!=-1) return dp[rem][prev_which][one][zero];
+    if(dp[rem][prev_which][one][zero]!=-1) {
+        cout<<"till now:";
+        printVec(curr);
+        return dp[rem][prev_which][one][zero];
+    }
     if(rem==0){
         if(prev_which==1){
             curr.emplace_back(0);
@@ -91,6 +95,6 @@ int numberOfStableArrays1(int zero, int one, int limit) {
 int main(){
     int zero,one,limit;
     cin>>zero>>one>>limit;
-    cout<<numberOfStableArrays(zero,one,limit)<<endl;
+    cout<<numberOfStableArrays1(zero,one,limit)<<endl;
     return 0;
 }
