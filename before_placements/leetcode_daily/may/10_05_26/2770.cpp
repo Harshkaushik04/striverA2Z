@@ -8,7 +8,7 @@ int main(){
 
 int f(int i,int target,vector<int>& dp,vector<int>& nums,int n){
     if(i==n-1) return 0;
-    if(dp[i]!=-2) return dp[i];
+    if(dp[i]!=-2) return dp[i];w
     int maxi=INT32_MIN;
     for(int j=i+1;j<n;j++){
         if(abs(nums[j]-nums[i])<=target){
